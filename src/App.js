@@ -10,21 +10,25 @@ class App extends Component {
     this.state = {
       gameRoomData: undefined
     };
+    socket.on("joined", data => {
+      this.setState({ gameRoomData: JSON.stringify(data) });
+    });
   }
 
   onCreate = username => {
-    console.log("creae", username);
-
     socket.emit("create", { username });
     socket.on("created", data => {
-      this.setState({ gameRoomData: data, username: username });
+      this.setState({
+        gameRoomData: JSON.stringify(data),
+        username: username
+      });
     });
   };
 
   onJoin = (gameCode, username) => {
     socket.emit("join", { gameCode, username });
     socket.on("joined", data => {
-      this.setState({ gameRoomData: data, username });
+      this.setState({ gameRoomData: JSON.stringify(data), username });
     });
   };
 

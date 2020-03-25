@@ -24,24 +24,19 @@ function shuffle(array) {
 export default class Game extends Component {
   constructor(props) {
     super(props);
-    const cards = [];
-    values.forEach(v => {
-      suits.forEach(s => cards.push({ suit: s, value: v }));
-    });
-    shuffle(cards);
+  }
+  render() {
+    const gameRoomData = JSON.parse(this.props.gameRoomData);
+    const username = this.props.username;
+    const { cards, players, gameCode } = gameRoomData;
     const p1Cards = cards.splice(0, 13);
     const p2Cards = cards.splice(0, 13);
     const p3Cards = cards.splice(0, 13);
     const meCards = cards.splice(0, 13);
-    this.state = {
-      p1Cards,
-      p2Cards,
-      p3Cards,
-      meCards
-    };
-  }
-  render() {
-    const { meCards, p1Cards, p2Cards, p3Cards } = this.state;
+
+    if (Object.keys(players).length !== 4) {
+      return <p>Waiting for other players, JOIN GAME {gameCode}</p>;
+    }
     return (
       <div className="gameContainer">
         <div className="player1 player">
