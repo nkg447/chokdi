@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "../card/card";
 
 export default props => {
@@ -6,8 +6,8 @@ export default props => {
   return (
     <div className={`hand ${isVerticle ? "v" : "h"}hand-compact active-hand`}>
       {hand.map((card, key) => (
-          <Card key={key} card={card}></Card>
-        ))}
+        <Card key={key} card={card}></Card>
+      ))}
     </div>
   );
 };
