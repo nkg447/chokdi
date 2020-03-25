@@ -8,11 +8,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameRoomData: undefined
+      gameRoomData: undefined,
+      username: undefined
     };
-    socket.on("joined", data => {
-      this.setState({ gameRoomData: JSON.stringify(data) });
-    });
   }
 
   onCreate = username => {
@@ -22,6 +20,9 @@ class App extends Component {
         gameRoomData: JSON.stringify(data),
         username: username
       });
+    });
+    socket.on("joined", data => {
+      this.setState({ gameRoomData: JSON.stringify(data) });
     });
   };
 
@@ -33,11 +34,11 @@ class App extends Component {
   };
 
   render = () => {
-    const { gameRoomData } = this.state;
+    const { gameRoomData, username } = this.state;
     return (
       <div className="App">
         {gameRoomData ? (
-          <Game gameRoomData={gameRoomData}></Game>
+          <Game gameRoomData={gameRoomData} username={username}></Game>
         ) : (
           <JoinOrCreate
             onCreate={this.onCreate}

@@ -24,16 +24,16 @@ code {
   margin: 10px;
 }
 
-.player1 {
+.player0 {
   grid-area: 2 / 1 / 5 / 2;
 }
-.player2 {
+.player1 {
   grid-area: 1 / 2 / 2 / 5;
 }
-.player3 {
+.player2 {
   grid-area: 2 / 5 / 5 / 6;
 }
-.player4 {
+.me {
   grid-area: 5 / 2 / 6 / 5;
 }
 .board {

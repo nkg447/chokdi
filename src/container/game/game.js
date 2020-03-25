@@ -28,28 +28,28 @@ export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
     const username = this.props.username;
-    const { cards, players, gameCode } = gameRoomData;
-    const p1Cards = cards.splice(0, 13);
-    const p2Cards = cards.splice(0, 13);
-    const p3Cards = cards.splice(0, 13);
-    const meCards = cards.splice(0, 13);
+    console.log(gameRoomData, username);
+    const { players, gameCode } = gameRoomData;
 
     if (Object.keys(players).length !== 4) {
       return <p>Waiting for other players, JOIN GAME {gameCode}</p>;
     }
     return (
       <div className="gameContainer">
-        <div className="player1 player">
-          <OpponentHand isVerticle={true} hand={p1Cards}></OpponentHand>
-        </div>
-        <div className="player2 player">
-          <OpponentHand hand={p2Cards}></OpponentHand>
-        </div>
-        <div className="player3 player">
-          <OpponentHand isVerticle={true} hand={p3Cards}></OpponentHand>
-        </div>
-        <div className="player4">
-          <MyHand hand={meCards}></MyHand>
+        {Object.keys(players)
+          .filter(p => p !== username)
+          .map((p, i) => {
+            return (
+              <div key={i} className={`player${i} player`}>
+                <OpponentHand
+                  isVerticle={i % 2 == 0}
+                  hand={players[p].cards}
+                ></OpponentHand>
+              </div>
+            );
+          })}
+        <div className="me">
+          <MyHand hand={players[username].cards}></MyHand>
         </div>
         <div className="board"></div>
       </div>
