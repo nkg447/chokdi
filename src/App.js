@@ -16,6 +16,7 @@ class App extends Component {
   onCreate = username => {
     socket.emit("create", { username });
     socket.on("created", data => {
+      localStorage.setItem("gameCode", data.gameCode);
       this.setState({
         gameRoomData: JSON.stringify(data),
         username: username

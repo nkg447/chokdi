@@ -6,13 +6,19 @@ export default props => {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-between",
-        flexDirection: "column"
+        flexDirection: "column",
+        alignItems: "center"
       }}
     >
       <input id="my-username" placeholder="username" type="text"></input>
-      <input id="game-code" placeholder="game code" type="text"></input>
-      <button
+      <input
+        id="game-code"
+        placeholder="game code"
+        value={localStorage.getItem("gameCode")}
+        type="text"
+      ></input>
+      <div
+        className="button"
         onClick={e =>
           onJoin(
             document.getElementById("game-code").value,
@@ -21,12 +27,13 @@ export default props => {
         }
       >
         JOIN
-      </button>
-      <button
+      </div>
+      <div
+        className="button"
         onClick={e => onCreate(document.getElementById("my-username").value)}
       >
         CREATE NEW
-      </button>
+      </div>
     </div>
   );
 };

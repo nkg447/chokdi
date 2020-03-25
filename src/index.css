@@ -17,9 +17,10 @@ code {
   grid-template-rows: repeat(10, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  height: 100vh;
 }
 .player {
-  margin: 10px;
+  margin: 1em;
 }
 
 .player0 {
@@ -38,7 +39,34 @@ code {
   grid-area: 3 / 3 / 7 / 9;
   border: 2px solid gray;
 }
-
+/* for mobile
+.hhand-compact > .card {
+  width: 8% !important;
+}
+.vhand-compact > .card {
+  width: 55% !important;
+} */
 .card {
-  margin-left: -110px !important;
+  width: 6em !important;
+}
+
+.vhand-compact > div > .card {
+  width: 4.5em !important;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  width: 40%;
+}
+.button {
+  margin: 10px;
+  padding: 10px;
+  width: 40%;
+  border: 1px solid gray;
+  color: gray;
+}
+.button:hover {
+  background-color: rgb(77, 121, 223);
+  color: white;
 }

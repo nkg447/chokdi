@@ -12,9 +12,13 @@ export default class Game extends Component {
     if (Object.keys(players).length !== 4) {
       return <p>Waiting for other players, JOIN GAME {gameCode}</p>;
     }
+    const playersOrder = Object.keys(players).sort();
+    while (playersOrder[0] !== username) {
+      playersOrder.push(playersOrder.shift());
+    }
     return (
       <div className="gameContainer">
-        {Object.keys(players)
+        {playersOrder
           .filter(p => p !== username)
           .map((p, i) => {
             return (
@@ -22,6 +26,7 @@ export default class Game extends Component {
                 <OpponentHand
                   isVerticle={i % 2 === 0}
                   hand={players[p].cards}
+                  username={p}
                 ></OpponentHand>
               </div>
             );
