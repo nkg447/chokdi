@@ -11,7 +11,7 @@ export default class MyHand extends Component {
   render() {
     const { hand } = this.state;
     return (
-      <div className="myhand">
+      <div className="hand hhand-compact active-hand">
         {hand.map(card=><Card card={card}></Card>)}
       </div>
     );

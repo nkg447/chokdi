@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import MyHand from "../myhand/myhand";
 
-const suits = ["heart", "spade", "club", "diamond"];
+const suits = ["H", "S", "C", "D"];
 const values = [
-  "1",
   "2",
   "3",
   "4",
@@ -44,9 +43,9 @@ export default class Game extends Component {
     const { meCards, p1Cards, p2Cards, p3Cards } = this.state;
     return (
       <div className="gameContainer">
-        <div className="player1">P1</div>
-        <div className="player2">P2</div>
-        <div className="player3">P3</div>
+        <div className="player1 player">PLAYER 1</div>
+        <div className="player2 player">PLAYER 2</div>
+        <div className="player3 player">PLAYER 3</div>
         <div className="player4">
           <MyHand hand={meCards}></MyHand>
         </div>

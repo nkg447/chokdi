@@ -20,6 +20,10 @@ code {
   width: 100vw;
   height: 100vh;
 }
+.player {
+  border: 2px dotted gray;
+  margin: 10px;
+}
 
 .player1 {
   grid-area: 2 / 1 / 5 / 2;
@@ -35,14 +39,9 @@ code {
 }
 .board {
   grid-area: 2 / 2 / 5 / 5;
+  border: 2px solid gray;
 }
 
-.myhand {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.card {
-  border: 1px solid lightgray;
-  min-width: 5em;
+.card{
+  margin-left: -110px !important;
 }
