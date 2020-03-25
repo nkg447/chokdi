@@ -12,7 +12,9 @@ export default class MyHand extends Component {
     const { hand } = this.state;
     return (
       <div className="hand hhand-compact active-hand">
-        {hand.map(card=><Card card={card}></Card>)}
+        {hand.map((card, key) => (
+          <Card visible={true} key={key} card={card}></Card>
+        ))}
       </div>
     );
   }

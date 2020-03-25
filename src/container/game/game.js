@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MyHand from "../myhand/myhand";
+import OpponentHand from "../../component/oponenthand/opponenthand";
 
 const suits = ["H", "S", "C", "D"];
 const values = [
@@ -43,9 +44,15 @@ export default class Game extends Component {
     const { meCards, p1Cards, p2Cards, p3Cards } = this.state;
     return (
       <div className="gameContainer">
-        <div className="player1 player">PLAYER 1</div>
-        <div className="player2 player">PLAYER 2</div>
-        <div className="player3 player">PLAYER 3</div>
+        <div className="player1 player">
+          <OpponentHand isVerticle={true} hand={p1Cards}></OpponentHand>
+        </div>
+        <div className="player2 player">
+          <OpponentHand hand={p2Cards}></OpponentHand>
+        </div>
+        <div className="player3 player">
+          <OpponentHand isVerticle={true} hand={p3Cards}></OpponentHand>
+        </div>
         <div className="player4">
           <MyHand hand={meCards}></MyHand>
         </div>
