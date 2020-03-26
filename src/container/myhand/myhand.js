@@ -33,7 +33,6 @@ function clickable(card, hand, board) {
 
 export default props => {
   const { hand, isMyTurn, username, trump, currentBoard } = props;
-  const [cardSelected, setCardSelected] = useState(null);
   return (
     <div style={isMyTurn ? { marginTop: "20px" } : {}}>
       <div className="hand hhand-compact active-hand">
@@ -42,9 +41,6 @@ export default props => {
           .sort((c1, c2) => c1.suit.localeCompare(c2.suit))
           .map((card, key) => (
             <Card
-              style={
-                isEqual(card, cardSelected) ? { paddingBottom: "10px" } : {}
-              }
               onClick={() =>
                 clickable(card, hand, currentBoard)
                   ? socket.emit("dealt-card", { username, card })

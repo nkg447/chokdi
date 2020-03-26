@@ -52,6 +52,7 @@ export default class Game extends Component {
           <div>
             {board}
             <div>your move</div>
+            <div>last round winner is {gameRoomData.lastRoundWinner}</div>
           </div>
         );
       } else {
@@ -59,6 +60,7 @@ export default class Game extends Component {
           <div>
             {board}
             <div>Waiting for {gameRoomData.turnOf} to deal a card.</div>
+            <div>last round winner is {gameRoomData.lastRoundWinner}</div>
           </div>
         );
       }
@@ -78,6 +80,7 @@ export default class Game extends Component {
                   isVerticle={i % 2 === 0}
                   hand={players[p].cards}
                   username={p}
+                  points={players[p].points}
                 ></OpponentHand>
               </div>
             );
@@ -90,7 +93,7 @@ export default class Game extends Component {
             hand={players[username].cards}
             currentBoard={gameRoomData.currentBoard}
           ></MyHand>
-          <h3>Trump - {trump}</h3>
+          <h3>Points - {players[username].points.length}   Trump - {trump}</h3>
         </div>
         <div className="board">{boardComponent}</div>
       </div>
