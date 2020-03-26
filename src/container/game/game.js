@@ -3,6 +3,7 @@ import MyHand from "../myhand/myhand";
 import OpponentHand from "../../component/oponenthand/opponenthand";
 import TellHands from "../../component/tellhands/tellhands";
 import TrumpDecide from "../../component/trumpdecide/trumpdecide";
+import Board from "../board/board";
 
 export default class Game extends Component {
   render() {
@@ -42,6 +43,26 @@ export default class Game extends Component {
         );
       }
     }
+    if (status === "GAME_STARTED") {
+      const board = (
+        <Board username={username} cards={gameRoomData.currentBoard}></Board>
+      );
+      if (username === gameRoomData.turnOf) {
+        boardComponent = (
+          <div>
+            {board}
+            <div>your move</div>
+          </div>
+        );
+      } else {
+        boardComponent = (
+          <div>
+            {board}
+            <div>Waiting for {gameRoomData.turnOf} to deal a card.</div>
+          </div>
+        );
+      }
+    }
 
     while (playersOrder[0] !== username) {
       playersOrder.push(playersOrder.shift());
@@ -62,7 +83,11 @@ export default class Game extends Component {
             );
           })}
         <div className="me">
-          <MyHand hand={players[username].cards}></MyHand>
+          <MyHand
+            username={username}
+            isMyTurn={username === gameRoomData.turnOf}
+            hand={players[username].cards}
+          ></MyHand>
           <h3>Trump - {trump}</h3>
         </div>
         <div className="board">{boardComponent}</div>
