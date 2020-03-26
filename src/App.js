@@ -11,6 +11,12 @@ class App extends Component {
       gameRoomData: undefined,
       username: undefined
     };
+
+    socket.on("update", data => {
+      this.setState({
+        gameRoomData: JSON.stringify(data)
+      });
+    });
   }
 
   onCreate = username => {

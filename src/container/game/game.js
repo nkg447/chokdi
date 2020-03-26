@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 import MyHand from "../myhand/myhand";
 import OpponentHand from "../../component/oponenthand/opponenthand";
-
+import TellHands from "../../component/tellhands/tellhands";
 export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
     const username = this.props.username;
     console.log(gameRoomData, username);
-    const { players, gameCode } = gameRoomData;
+    const { players, gameCode, playersOrder, status } = gameRoomData;
 
-    if (Object.keys(players).length !== 4) {
+    if (status === "WAITING_TO_JOIN") {
       return <p>Waiting for other players, JOIN GAME {gameCode}</p>;
     }
-    const playersOrder = Object.keys(players).sort();
+
+    if (status === "TELL_HANDS") {
+      if (username === gameRoomData.tellHandsUsername) {
+        return (
+          <TellHands
+            username={username}
+            minHands={gameRoomData.minHandsToTell}
+          ></TellHands>
+        );
+      } else {
+        return (
+          <p>Waiting for {gameRoomData.tellHandsUsername} to tell Hands</p>
+        );
+      }
+    }
+
     while (playersOrder[0] !== username) {
       playersOrder.push(playersOrder.shift());
     }
