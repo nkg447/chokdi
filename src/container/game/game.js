@@ -84,9 +84,11 @@ export default class Game extends Component {
           })}
         <div className="me">
           <MyHand
+            trump={trump}
             username={username}
             isMyTurn={username === gameRoomData.turnOf}
             hand={players[username].cards}
+            currentBoard={gameRoomData.currentBoard}
           ></MyHand>
           <h3>Trump - {trump}</h3>
         </div>
