@@ -42,7 +42,7 @@ export default props => {
           .map((card, key) => (
             <Card
               onClick={() =>
-                clickable(card, hand, currentBoard)
+                isMyTurn && clickable(card, hand, currentBoard)
                   ? socket.emit("dealt-card", { username, card })
                   : message.warn("cannot deal this card")
               }

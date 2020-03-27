@@ -78,9 +78,8 @@ export default class Game extends Component {
               <div key={i} className={`player${i} player`}>
                 <OpponentHand
                   isVerticle={i % 2 === 0}
-                  hand={players[p].cards}
+                  player={players[p]}
                   username={p}
-                  points={players[p].points}
                 ></OpponentHand>
               </div>
             );
