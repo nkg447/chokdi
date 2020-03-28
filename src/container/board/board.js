@@ -7,8 +7,9 @@ export default props => {
     <div>
       <div className="board-cards">
         {cards.map((card, key) => (
-          <div>
+          <div className="hand hhand-compact active-hand">
             <Card
+            style={{width: "20vh"}}
               key={key}
               visible={true}
               card={card.card}

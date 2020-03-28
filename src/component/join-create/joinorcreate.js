@@ -17,22 +17,24 @@ export default props => {
         value={localStorage.getItem("gameCode")}
         type="text"
       ></input>
-      <div
-        className="button"
-        onClick={e =>
-          onJoin(
-            document.getElementById("game-code").value,
-            document.getElementById("my-username").value
-          )
-        }
-      >
-        JOIN
-      </div>
-      <div
-        className="button"
-        onClick={e => onCreate(document.getElementById("my-username").value)}
-      >
-        CREATE NEW
+      <div style={{ display: "flex", justifyContent:"space-between", width:"40%"}}>
+        <div
+          className="button"
+          onClick={e =>
+            onJoin(
+              document.getElementById("game-code").value,
+              document.getElementById("my-username").value
+            )
+          }
+        >
+          JOIN
+        </div>
+        <div
+          className="button"
+          onClick={e => onCreate(document.getElementById("my-username").value)}
+        >
+          CREATE NEW
+        </div>
       </div>
     </div>
   );

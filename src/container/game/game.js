@@ -44,13 +44,9 @@ export default class Game extends Component {
       }
     }
     if (status === "GAME_STARTED") {
-      const board = (
-        <Board username={username} cards={gameRoomData.currentBoard}></Board>
-      );
       if (username === gameRoomData.turnOf) {
         boardComponent = (
           <div>
-            {board}
             <div>your move</div>
             <div>last round winner is {gameRoomData.lastRoundWinner}</div>
           </div>
@@ -58,7 +54,6 @@ export default class Game extends Component {
       } else {
         boardComponent = (
           <div>
-            {board}
             <div>Waiting for {gameRoomData.turnOf} to deal a card.</div>
             <div>last round winner is {gameRoomData.lastRoundWinner}</div>
           </div>
@@ -92,9 +87,19 @@ export default class Game extends Component {
             hand={players[username].cards}
             currentBoard={gameRoomData.currentBoard}
           ></MyHand>
-          <h3>Points - {players[username].points.length}   Trump - {trump}</h3>
+          <h3>
+        {username} (Points - {players[username].points.length}) Trump - {trump}
+          </h3>
         </div>
-        <div className="board">{boardComponent}</div>
+        <div className="board">
+          {status === "GAME_STARTED" ? (
+            <Board
+              username={username}
+              cards={gameRoomData.currentBoard}
+            ></Board>
+          ) : null}
+        </div>
+          <div className="scoreboard">{boardComponent}</div>
       </div>
     );
   }
