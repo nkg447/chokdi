@@ -10,7 +10,7 @@ export default props => {
       <div className="trump-option">
         {suits.map(s => (
           <div
-            style={trump == s ? { backgroundColor: "blue" } : {}}
+            style={trump === s ? { backgroundColor: "blue" } : {}}
             onClick={() => setTrump(s)}
           >
             {s}

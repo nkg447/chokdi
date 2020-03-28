@@ -19,6 +19,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+#lang > option {
+  color: black;
+  padding: 5px;
+}
+#lang {
+}
 .gameContainer {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -51,7 +57,8 @@ code {
   grid-area: 9 / 1 / 10 / 17;
 }
 
-input {
+input,
+#lang {
   margin: 10px;
   padding: 10px;
   width: 40%;
@@ -61,7 +68,7 @@ input {
 .button {
   margin-top: 10px;
   padding: 10px;
-  width:48%;
+  width: 48%;
   color: #457f3f;
   background-color: aliceblue;
   cursor: pointer;
@@ -88,20 +95,18 @@ input {
   font-size: 100%;
 }
 
-.tell-hands{
+.tell-hands {
   display: flex;
   justify-content: center;
   width: auto;
 }
-.tell-hands > *{
+.tell-hands > * {
   margin: 5px;
   width: auto;
 }
-.tell-hands > p{
+.tell-hands > p {
   margin-top: 15px;
 }
-
-
 
 .card {
   border: 0;

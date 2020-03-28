@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import socket from "../../socket";
+import Constants from "../../constants/constant";
 
 export default props => {
   const { minHands, username } = props;
@@ -34,7 +35,7 @@ export default props => {
           SUBMIT
         </div>
       </div>
-      <p>How many hands will you make?</p>
+      <p>{Constants.youTellHands()}</p>
     </>
   );
 };

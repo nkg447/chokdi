@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "../../component/card/card";
 
 export default props => {
@@ -9,7 +9,7 @@ export default props => {
         {cards.map((card, key) => (
           <div className="hand hhand-compact active-hand">
             <Card
-            style={{width: "20vh"}}
+              style={{ width: "20vh" }}
               key={key}
               visible={true}
               card={card.card}

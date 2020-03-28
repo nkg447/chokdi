@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../../component/card/card";
 import socket from "../../socket";
 import { message } from "antd";
-const isEqual = require("lodash/isEqual");
 const indexOf = require("lodash/indexOf");
 
 const values = [
@@ -25,10 +24,10 @@ function valueOf(value) {
 }
 
 function clickable(card, hand, board) {
-  if (board.length == 0) return true;
+  if (board.length === 0) return true;
   const baseSuit = board[0].card.suit;
-  if (card.suit == baseSuit) return true;
-  return hand.filter(c => c.suit == baseSuit).length == 0;
+  if (card.suit === baseSuit) return true;
+  return hand.filter(c => c.suit === baseSuit).length === 0;
 }
 
 export default props => {

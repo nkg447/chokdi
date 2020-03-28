@@ -4,6 +4,7 @@ import OpponentHand from "../../component/oponenthand/opponenthand";
 import TellHands from "../../component/tellhands/tellhands";
 import TrumpDecide from "../../component/trumpdecide/trumpdecide";
 import Board from "../board/board";
+import Constants from "../../constants/constant";
 
 export default class Game extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class Game extends Component {
     const { players, gameCode, playersOrder, status, trump } = gameRoomData;
 
     if (status === "WAITING_TO_JOIN") {
-      return <p>Waiting for other players, JOIN GAME {gameCode}</p>;
+      return <p>{Constants.waitingToJoin(gameCode)}</p>;
     }
     let boardComponent = undefined;
     if (status === "TELL_HANDS") {
@@ -26,7 +27,7 @@ export default class Game extends Component {
         );
       } else {
         boardComponent = (
-          <p>Waiting for {gameRoomData.tellHandsUsername} to tell Hands</p>
+          <p>{Constants.tellHands(gameRoomData.tellHandsUsername)}</p>
         );
       }
     }
@@ -36,9 +37,10 @@ export default class Game extends Component {
       } else {
         boardComponent = (
           <p>
-            Waiting for {gameRoomData.trumpTeller} to tell Trump.{" "}
-            {gameRoomData.trumpTeller} will make {gameRoomData.minHandsToTell}{" "}
-            hands
+            {Constants.trumpDecide(
+              gameRoomData.trumpTeller,
+              gameRoomData.minHandsToTell
+            )}
           </p>
         );
       }
@@ -47,15 +49,23 @@ export default class Game extends Component {
       if (username === gameRoomData.turnOf) {
         boardComponent = (
           <div>
-            <div>your move</div>
-            <div>last round winner is {gameRoomData.lastRoundWinner}</div>
+            <div>{Constants.gameStarted.yourMove()}</div>
+            <div>
+              {Constants.gameStarted.lastRoundWinner(
+                gameRoomData.lastRoundWinner
+              )}
+            </div>
           </div>
         );
       } else {
         boardComponent = (
           <div>
-            <div>Waiting for {gameRoomData.turnOf} to deal a card.</div>
-            <div>last round winner is {gameRoomData.lastRoundWinner}</div>
+            <div>{Constants.gameStarted.waiting(gameRoomData.turnOf)}</div>
+            <div>
+              {Constants.gameStarted.lastRoundWinner(
+                gameRoomData.lastRoundWinner
+              )}
+            </div>
           </div>
         );
       }
@@ -88,7 +98,11 @@ export default class Game extends Component {
             currentBoard={gameRoomData.currentBoard}
           ></MyHand>
           <h3>
-        {username} (Points - {players[username].points.length}) Trump - {trump}
+            {Constants.myHandSubtitle(
+              username,
+              players[username].points.length,
+              trump
+            )}
           </h3>
         </div>
         <div className="board">
@@ -99,7 +113,7 @@ export default class Game extends Component {
             ></Board>
           ) : null}
         </div>
-          <div className="scoreboard">{boardComponent}</div>
+        <div className="scoreboard">{boardComponent}</div>
       </div>
     );
   }
