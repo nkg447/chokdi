@@ -141,8 +141,8 @@ input,
   margin-left: 0;
 }
 .hhand-compact .card {
-  margin-left: -5%;
-  width: 7%;
+  margin-left: -4em;
+  width: 6em;
 }
 .hhand-compact.active-hand .card:hover {
   padding-top: 0;

@@ -10,7 +10,6 @@ export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
     const username = this.props.username;
-    console.log(gameRoomData, username);
     const { players, gameCode, playersOrder, status, trump } = gameRoomData;
 
     if (status === "WAITING_TO_JOIN") {
