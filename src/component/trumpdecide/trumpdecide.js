@@ -6,8 +6,8 @@ export default props => {
   const [trump, setTrump] = useState("S");
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ alignSelf: "center" }}>Decide Trump</div>
       <div className="trump-option">
+        <div style={{ alignSelf: "center" }}>Decide Trump</div>
         {suits.map(s => (
           <div
             style={trump === s ? { backgroundColor: "blue" } : {}}
@@ -16,15 +16,15 @@ export default props => {
             {s}
           </div>
         ))}
-      </div>
-      <div
-        style={{ alignSelf: "center" }}
-        onClick={() => {
-          socket.emit("trump-decide", { username, trump });
-        }}
-        className="button"
-      >
-        SUBMIT
+        <div
+          style={{ alignSelf: "center" }}
+          onClick={() => {
+            socket.emit("trump-decide", { username, trump });
+          }}
+          className="button"
+        >
+          SUBMIT
+        </div>
       </div>
     </div>
   );

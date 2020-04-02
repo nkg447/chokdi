@@ -9,6 +9,7 @@ export default props => {
   return (
     <>
       <div className="tell-hands">
+        <p>{Constants.youTellHands()}</p>
         <div
           onClick={() => {
             if (hands > minHands) setHands(hands - 1);
@@ -35,7 +36,6 @@ export default props => {
           SUBMIT
         </div>
       </div>
-      <p>{Constants.youTellHands()}</p>
     </>
   );
 };

@@ -58,7 +58,7 @@ code {
   justify-content: flex-end;
 }
 .status {
-  height: 80px;
+  height: 50px;
   background-color: lightgray;
   color: black;
 }
@@ -124,11 +124,10 @@ input,
   font-size: larger;
 }
 .button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 48%;
-  color: #457f3f;
-  background-color: aliceblue;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid gray;
   cursor: pointer;
 }
 .button:hover {
@@ -138,7 +137,6 @@ input,
 .trump-option {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 20px;
 }
 .trump-option > div {
   border: 1px solid lightgray;
@@ -158,9 +156,13 @@ input,
   justify-content: center;
   width: auto;
 }
+.tell-hands > .button {
+  border-radius: 50px;
+}
 .tell-hands > * {
   margin: 5px;
   width: auto;
+  color: black;
 }
 .tell-hands > p {
   margin-top: 15px;
