@@ -5,12 +5,15 @@ import TellHands from "../../component/tellhands/tellhands";
 import TrumpDecide from "../../component/trumpdecide/trumpdecide";
 import Board from "../board/board";
 import Constants from "../../constants/constant";
+import BottomStatus from "../bottomstatus/bottomstatus";
 
 export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
     const username = this.props.username;
     const { players, gameCode, playersOrder, status, trump } = gameRoomData;
+    console.log(gameRoomData);
+    
 
     if (status === "WAITING_TO_JOIN") {
       return <p>{Constants.waitingToJoin(gameCode)}</p>;
@@ -112,7 +115,12 @@ export default class Game extends Component {
             ></Board>
           ) : null}
         </div>
-        <div className="scoreboard">{boardComponent}</div>
+        <div className="bottompane">
+          <div className="status">{boardComponent}</div>
+          <div className="bottom-status">
+            <BottomStatus players={players}></BottomStatus>
+          </div>
+        </div>
       </div>
     );
   }

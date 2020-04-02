@@ -11,7 +11,11 @@ export default props => {
       </p>
       <div>
         {cards.map((card, key) => (
-          <Card key={key} card={card}></Card>
+          <Card
+            style={isVerticle ? {} : { marginLeft: "-5.5em" }}
+            key={key}
+            card={card}
+          ></Card>
         ))}
       </div>
     </div>
