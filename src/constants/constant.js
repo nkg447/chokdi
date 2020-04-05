@@ -39,5 +39,7 @@ export default {
     constants.MY_HAND_SUBTITLE.replace(/\${username}/g, username)
       .replace(/\${points}/g, points)
       .replace(/\${trump}/g, trump),
-  youTellHands: () => constants.YOU_TELL_HANDS
+  youTellHands: () => constants.YOU_TELL_HANDS,
+  trumpIs: trump => constants.TRUMP_IS.replace(/\${trump}/g, trump),
+  joined: user => constants.JOINED.replace(/\${user}/g, user)
 };

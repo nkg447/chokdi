@@ -11,14 +11,20 @@ export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
     const username = this.props.username;
-    const { players, gameCode, playersOrder, status, trump } = gameRoomData;
-    console.log(gameRoomData);
-    
+    let {
+      players,
+      gameCode,
+      playersOrder,
+      status,
+      trump,
+      message
+    } = gameRoomData;
 
-    if (status === "WAITING_TO_JOIN") {
-      return <p>{Constants.waitingToJoin(gameCode)}</p>;
-    }
     let boardComponent = undefined;
+    if (status === "WAITING_TO_JOIN") {
+      playersOrder = [username];
+      boardComponent = <p>{Constants.waitingToJoin(gameCode)}</p>;
+    }
     if (status === "TELL_HANDS") {
       if (username === gameRoomData.tellHandsUsername) {
         boardComponent = (
@@ -49,26 +55,10 @@ export default class Game extends Component {
     }
     if (status === "GAME_STARTED") {
       if (username === gameRoomData.turnOf) {
-        boardComponent = (
-          <div>
-            <div>{Constants.gameStarted.yourMove()}</div>
-            <div>
-              {Constants.gameStarted.lastRoundWinner(
-                gameRoomData.lastRoundWinner
-              )}
-            </div>
-          </div>
-        );
+        boardComponent = <div>{Constants.gameStarted.yourMove()}</div>;
       } else {
         boardComponent = (
-          <div>
-            <div>{Constants.gameStarted.waiting(gameRoomData.turnOf)}</div>
-            <div>
-              {Constants.gameStarted.lastRoundWinner(
-                gameRoomData.lastRoundWinner
-              )}
-            </div>
-          </div>
+          <div>{Constants.gameStarted.waiting(gameRoomData.turnOf)}</div>
         );
       }
     }
@@ -118,7 +108,7 @@ export default class Game extends Component {
         <div className="bottompane">
           <div className="status">{boardComponent}</div>
           <div className="bottom-status">
-            <BottomStatus players={players}></BottomStatus>
+            <BottomStatus username={username} game={gameRoomData}></BottomStatus>
           </div>
         </div>
       </div>

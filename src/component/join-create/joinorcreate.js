@@ -30,12 +30,13 @@ export default props => {
         <div
           className="button"
           onClick={e => {
-            onJoin(
-              document.getElementById("game-code").value === ""
-                ? localStorage.getItem("gameCode")
-                : document.getElementById("game-code").value,
-              document.getElementById("my-username").value
-            );
+            if (document.getElementById("my-username").value.trim() !== "")
+              onJoin(
+                document.getElementById("game-code").value === ""
+                  ? localStorage.getItem("gameCode")
+                  : document.getElementById("game-code").value.trim(),
+                document.getElementById("my-username").value.trim()
+              );
             setConstants(document.getElementById("lang").value);
           }}
         >
@@ -44,7 +45,7 @@ export default props => {
         <div
           className="button"
           onClick={e => {
-            onCreate(document.getElementById("my-username").value);
+            onCreate(document.getElementById("my-username").value.trim());
             setConstants(document.getElementById("lang").value);
           }}
         >

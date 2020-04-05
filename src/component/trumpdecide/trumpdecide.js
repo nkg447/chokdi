@@ -9,12 +9,11 @@ export default props => {
       <div className="trump-option">
         <div style={{ alignSelf: "center" }}>Decide Trump</div>
         {suits.map(s => (
-          <div
-            style={trump === s ? { backgroundColor: "blue" } : {}}
+          <img
+            src={`cards/${s}.svg`}
+            style={trump === s ? { borderRadius: "30px", backgroundColor:"gray" } : {}}
             onClick={() => setTrump(s)}
-          >
-            {s}
-          </div>
+          ></img>
         ))}
         <div
           style={{ alignSelf: "center" }}

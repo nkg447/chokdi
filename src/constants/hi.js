@@ -10,5 +10,7 @@ export default {
     LAST_ROUND_WINNER: "Pichla vala ${lastRoundWinner} ka bana tha."
   },
   MY_HAND_SUBTITLE: "${username} (haath - ${points}) (kaat - ${trump})",
-  YOU_TELL_HANDS: "Kitne hath banaea?"
+  YOU_TELL_HANDS: "Kitne hath banaea?",
+  TRUMP_IS: "Kaat - ${trump}",
+  JOINED: "${user} aa gaya game me."
 };

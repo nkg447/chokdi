@@ -9,7 +9,7 @@ export default props => {
         {cards.map((card, key) => (
           <div className="hand hhand-compact active-hand">
             <Card
-              style={{ width: "20vh" }}
+              style={{ width: "5em" }}
               key={key}
               visible={true}
               card={card.card}

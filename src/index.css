@@ -11,7 +11,6 @@ body {
 * {
   margin: 0px;
   box-sizing: border-box;
-  color: white;
   font-weight: bolder;
 }
 
@@ -58,18 +57,18 @@ code {
   justify-content: flex-end;
 }
 .status {
-  height: 50px;
+  height: 30px;
   background-color: lightgray;
   color: black;
 }
 .bottom-status {
   grid-area: 2 / 1 / 9 / 6;
+  height: 130px;
 }
 .bottom-status-container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
 }
 .leaderboard {
   width: 30%;
@@ -85,31 +84,33 @@ code {
   width: 100%;
   padding: 10px;
   background-color: lightgray;
-  height: 150px;
+  height: 110px;
+  overflow: auto;
+}
+.all-messages > p{
+  font-size: small;
+  text-align: left;
+  font-weight: 400;
+  font-family: monospace;
 }
 .send-message {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 50px;
+  height: 20px;
   background-color: gray;
 }
 .send-message > input {
-  width: 80%;
-  margin: 5px;
-}
-.send-message > div {
-  width: 20%;
-  align-self: center;
-  border: 1px solid black;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 5px;
+  width: 100%;
+  margin: 1px;
+  padding: 1px;
+  height: 18px;
+  font-size: 15px;
 }
 table {
   border: 2px solid gray;
   width: 100%;
-  height: 200px;
+  height: 100%;
 }
 td {
   border-bottom: 1px solid lightgray;
@@ -124,7 +125,6 @@ input,
   font-size: larger;
 }
 .button {
-  padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border: 2px solid gray;
@@ -139,8 +139,19 @@ input,
   justify-content: space-evenly;
 }
 .trump-option > div {
+  margin-top: 5px;
   border: 1px solid lightgray;
-  padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.trump-option > img {
+  width: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.trump-option > .button{
+  border: 1px solid gray;
+  border-radius: 30px;
 }
 .board-cards {
   display: flex;
@@ -157,7 +168,7 @@ input,
   width: auto;
 }
 .tell-hands > .button {
-  border-radius: 50px;
+  border-radius: 30px;
 }
 .tell-hands > * {
   margin: 5px;
@@ -165,7 +176,7 @@ input,
   color: black;
 }
 .tell-hands > p {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .card {
@@ -201,8 +212,8 @@ input,
   margin-left: 0;
 }
 .hhand-compact .card {
-  margin-left: -4em;
-  width: 6em;
+  margin-left: -2.5em;
+  width: 4.5em;
 }
 .hhand-compact.active-hand .card:hover {
   padding-top: 0;
@@ -219,7 +230,7 @@ input,
 }
 .vhand-compact .card {
   display: block;
-  margin-top: -60%;
+  margin-top: -8em;
   padding-right: 10px;
   width: 45%;
 }
