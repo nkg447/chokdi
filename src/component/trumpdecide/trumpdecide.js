@@ -11,6 +11,7 @@ export default props => {
         {suits.map(s => (
           <img
             src={`cards/${s}.svg`}
+            alt={`cards/${s}.svg`}
             style={trump === s ? { borderRadius: "30px", backgroundColor:"gray" } : {}}
             onClick={() => setTrump(s)}
           ></img>

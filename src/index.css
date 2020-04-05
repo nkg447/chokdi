@@ -60,6 +60,13 @@ code {
   height: 30px;
   background-color: lightgray;
   color: black;
+  display: flex;
+}
+.status > div{
+  width: 80%;
+}
+.status > p{
+  width: 20%;
 }
 .bottom-status {
   grid-area: 2 / 1 / 9 / 6;

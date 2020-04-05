@@ -106,9 +106,21 @@ export default class Game extends Component {
           ) : null}
         </div>
         <div className="bottompane">
-          <div className="status">{boardComponent}</div>
+          <div className="status">
+            {boardComponent}
+            <p>
+              {Constants.trumpIs("")}
+              <img
+                src={`cards/${gameRoomData.trump}.svg`}
+                alt={`cards/${gameRoomData.trump}.svg`}
+              ></img>
+            </p>
+          </div>
           <div className="bottom-status">
-            <BottomStatus username={username} game={gameRoomData}></BottomStatus>
+            <BottomStatus
+              username={username}
+              game={gameRoomData}
+            ></BottomStatus>
           </div>
         </div>
       </div>

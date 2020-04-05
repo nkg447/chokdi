@@ -32,7 +32,7 @@ export default props => {
       setMessages(messages => [...messages, message]);
     setTimeout(() => {
       const allMessagesTag = document.getElementsByClassName("all-messages");
-      if (allMessagesTag.length != 0) {
+      if (allMessagesTag.length !== 0) {
         allMessagesTag[0].scrollTop =
           allMessagesTag[0].scrollTop + allMessagesTag[0].clientHeight;
         console.log(

@@ -11,7 +11,7 @@ export default props => {
       {Object.keys(players).map((player, i) => (
         <tr>
           <td>{player}</td>
-          <td>{players[player].points}</td>
+          <td>{players[player].points.length}</td>
         </tr>
       ))}
     </table>
