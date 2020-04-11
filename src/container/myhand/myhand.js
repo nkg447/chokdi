@@ -17,7 +17,7 @@ const values = [
   "J",
   "Q",
   "K",
-  "A"
+  "A",
 ];
 function valueOf(value) {
   return indexOf(values, value);
@@ -27,11 +27,13 @@ function clickable(card, hand, board) {
   if (board.length === 0) return true;
   const baseSuit = board[0].card.suit;
   if (card.suit === baseSuit) return true;
-  return hand.filter(c => c.suit === baseSuit).length === 0;
+  return hand.filter((c) => c.suit === baseSuit).length === 0;
 }
+let clickcount = 0;
 
-export default props => {
+export default (props) => {
   const { hand, isMyTurn, username, trump, currentBoard } = props;
+  const currentClickCount = clickcount;
   return (
     <div style={isMyTurn ? { marginTop: "20px" } : {}}>
       <div className="hand hhand-compact active-hand">
@@ -40,11 +42,16 @@ export default props => {
           .sort((c1, c2) => c1.suit.localeCompare(c2.suit))
           .map((card, key) => (
             <Card
-              onClick={() =>
-                isMyTurn && clickable(card, hand, currentBoard)
-                  ? socket.emit("dealt-card", { username, card })
-                  : message.warn("cannot deal this card")
-              }
+              onClick={() => {
+                if (
+                  isMyTurn &&
+                  currentClickCount == clickcount &&
+                  clickable(card, hand, currentBoard)
+                ) {
+                  clickcount++;
+                  socket.emit("dealt-card", { username, card });
+                }
+              }}
               visible={true}
               key={key}
               card={card}

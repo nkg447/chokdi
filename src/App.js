@@ -19,8 +19,6 @@ class App extends Component {
       });
     });
     socket.on("rooms", (data) => {
-      console.log(data);
-      
       this.setState({ rooms: data });
     });
   }
