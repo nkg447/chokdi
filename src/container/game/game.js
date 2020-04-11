@@ -17,7 +17,7 @@ export default class Game extends Component {
       playersOrder,
       status,
       trump,
-      message
+      message,
     } = gameRoomData;
 
     let boardComponent = undefined;
@@ -69,7 +69,7 @@ export default class Game extends Component {
     return (
       <div className="gameContainer">
         {playersOrder
-          .filter(p => p !== username)
+          .filter((p) => p !== username)
           .map((p, i) => {
             return (
               <div key={i} className={`player${i} player`}>
@@ -87,6 +87,7 @@ export default class Game extends Component {
             username={username}
             isMyTurn={username === gameRoomData.turnOf}
             hand={players[username].cards}
+            player={players[username]}
             currentBoard={gameRoomData.currentBoard}
           ></MyHand>
           <h3>
@@ -108,13 +109,16 @@ export default class Game extends Component {
         <div className="bottompane">
           <div className="status">
             {boardComponent}
-            <p>
-              {Constants.trumpIs("")}
-              <img
-                src={`cards/${gameRoomData.trump}.svg`}
-                alt={`cards/${gameRoomData.trump}.svg`}
-              ></img>
-            </p>
+            {gameRoomData.trump ? (
+              <p>
+                {Constants.trumpIs("")}
+                <img
+                style={{width:"30px"}}
+                  src={`cards/${gameRoomData.trump}.svg`}
+                  alt={`cards/${gameRoomData.trump}.svg`}
+                ></img>
+              </p>
+            ) : null}
           </div>
           <div className="bottom-status">
             <BottomStatus

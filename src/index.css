@@ -167,6 +167,7 @@ input,
 
 .text {
   font-size: 100%;
+  display: flex;
 }
 
 .tell-hands {
@@ -258,7 +259,17 @@ input,
   padding: 10px;
   margin: 10px;
 }
-.room > ul > li{
+.room > ul > li {
   font-size: smaller;
   text-align: left;
+}
+.icon > img {
+  width: 200px;
+  height: 200px;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  overflow: hidden;
 }

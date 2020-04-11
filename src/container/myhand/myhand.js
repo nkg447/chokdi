@@ -29,10 +29,15 @@ function clickable(card, hand, board) {
   if (card.suit === baseSuit) return true;
   return hand.filter((c) => c.suit === baseSuit).length === 0;
 }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 let clickcount = 0;
 
 export default (props) => {
-  const { hand, isMyTurn, username, trump, currentBoard } = props;
+  const { hand, isMyTurn, username, trump, currentBoard, player } = props;
+  const { iconNumber } = player;
   const currentClickCount = clickcount;
   return (
     <div style={isMyTurn ? { marginTop: "20px" } : {}}>
@@ -57,6 +62,16 @@ export default (props) => {
               card={card}
             ></Card>
           ))}
+      </div>
+      <div className="icon">
+        <img
+          style={{
+            margin: `-${parseInt(iconNumber / 4) * 50}px 0 0 -${
+              (iconNumber % 4) * 50
+            }px`,
+          }}
+          src="/characters.jpg"
+        ></img>
       </div>
     </div>
   );
