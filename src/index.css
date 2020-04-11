@@ -62,10 +62,10 @@ code {
   color: black;
   display: flex;
 }
-.status > div{
+.status > div {
   width: 80%;
 }
-.status > p{
+.status > p {
   width: 20%;
 }
 .bottom-status {
@@ -94,7 +94,7 @@ code {
   height: 110px;
   overflow: auto;
 }
-.all-messages > p{
+.all-messages > p {
   font-size: small;
   text-align: left;
   font-weight: 400;
@@ -156,7 +156,7 @@ input,
   padding-left: 5px;
   padding-right: 5px;
 }
-.trump-option > .button{
+.trump-option > .button {
   border: 1px solid gray;
   border-radius: 30px;
 }
@@ -246,4 +246,19 @@ input,
   display: block;
   padding-right: 0;
   padding-left: 10px;
+}
+
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.room {
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin: 10px;
+}
+.room > ul > li{
+  font-size: smaller;
+  text-align: left;
 }

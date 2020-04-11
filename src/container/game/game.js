@@ -23,7 +23,7 @@ export default class Game extends Component {
     let boardComponent = undefined;
     if (status === "WAITING_TO_JOIN") {
       playersOrder = [username];
-      boardComponent = <p>{Constants.waitingToJoin(gameCode)}</p>;
+      boardComponent = <div>{Constants.waitingToJoin(gameCode)}</div>;
     }
     if (status === "TELL_HANDS") {
       if (username === gameRoomData.tellHandsUsername) {

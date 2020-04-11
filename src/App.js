@@ -9,45 +9,52 @@ class App extends Component {
     super(props);
     this.state = {
       gameRoomData: undefined,
-      username: undefined
+      username: undefined,
+      rooms: [],
     };
 
-    socket.on("update", data => {
+    socket.on("update", (data) => {
       this.setState({
-        gameRoomData: JSON.stringify(data)
+        gameRoomData: JSON.stringify(data),
       });
+    });
+    socket.on("rooms", (data) => {
+      console.log(data);
+      
+      this.setState({ rooms: data });
     });
   }
 
-  onCreate = username => {
+  onCreate = (username) => {
     socket.emit("create", { username });
-    socket.on("created", data => {
+    socket.on("created", (data) => {
       localStorage.setItem("gameCode", data.gameCode);
       this.setState({
         gameRoomData: JSON.stringify(data),
-        username: username
+        username: username,
       });
     });
-    socket.on("joined", data => {
+    socket.on("joined", (data) => {
       this.setState({ gameRoomData: JSON.stringify(data) });
     });
   };
 
   onJoin = (gameCode, username) => {
     socket.emit("join", { gameCode, username });
-    socket.on("joined", data => {
+    socket.on("joined", (data) => {
       this.setState({ gameRoomData: JSON.stringify(data), username });
     });
   };
 
   render = () => {
-    const { gameRoomData, username } = this.state;
+    const { gameRoomData, username, rooms } = this.state;
     return (
       <div className="App">
         {gameRoomData ? (
           <Game gameRoomData={gameRoomData} username={username}></Game>
         ) : (
           <JoinOrCreate
+            rooms={rooms}
             onCreate={this.onCreate}
             onJoin={this.onJoin}
           ></JoinOrCreate>
