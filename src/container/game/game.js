@@ -6,6 +6,7 @@ import TrumpDecide from "../../component/trumpdecide/trumpdecide";
 import Board from "../board/board";
 import Constants from "../../constants/constant";
 import BottomStatus from "../bottomstatus/bottomstatus";
+import ChooseTeam from "../../component/chooseteam/chooseteam";
 
 export default class Game extends Component {
   render() {
@@ -18,12 +19,22 @@ export default class Game extends Component {
       status,
       trump,
       message,
+      teams,
     } = gameRoomData;
 
     let boardComponent = undefined;
     if (status === "WAITING_TO_JOIN") {
       playersOrder = [username];
       boardComponent = <div>{Constants.waitingToJoin(gameCode)}</div>;
+    }
+    if (status === "CHOOSE_TEAM") {
+      if (username === playersOrder[0]) {
+        boardComponent = (
+          <ChooseTeam players={players} username={username}></ChooseTeam>
+        );
+      } else {
+        boardComponent = <p>{Constants.chooseTeam(message)}</p>;
+      }
     }
     if (status === "TELL_HANDS") {
       if (username === gameRoomData.tellHandsUsername) {
@@ -76,6 +87,7 @@ export default class Game extends Component {
                 <OpponentHand
                   isVerticle={i % 2 === 0}
                   player={players[p]}
+                  teams={teams}
                   username={p}
                 ></OpponentHand>
               </div>
@@ -113,7 +125,7 @@ export default class Game extends Component {
               <p>
                 {Constants.trumpIs("")}
                 <img
-                style={{width:"30px"}}
+                  style={{ width: "30px" }}
                   src={`cards/${gameRoomData.trump}.svg`}
                   alt={`cards/${gameRoomData.trump}.svg`}
                 ></img>

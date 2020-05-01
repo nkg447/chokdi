@@ -6,19 +6,19 @@ import BaburawConstants from "./baburaw";
 const Lang_toConstants = {
   en: EnConstants,
   hi: HIConstants,
-  baburaw: BaburawConstants
+  baburaw: BaburawConstants,
 };
 
 let constants = Lang_toConstants[LANGUAGE];
 
-export const setConstants = lang => {
+export const setConstants = (lang) => {
   constants = Lang_toConstants[lang];
 };
 
 export default {
-  waitingToJoin: gameCode =>
+  waitingToJoin: (gameCode) =>
     constants.WAITING_TO_JOIN.replace(/\${gameCode}/g, gameCode),
-  tellHands: tellHandsUsername =>
+  tellHands: (tellHandsUsername) =>
     constants.TELL_HANDS.replace(/\${tellHandsUsername}/g, tellHandsUsername),
   trumpDecide: (trumpTeller, minHandsToTell) =>
     constants.TRUMP_DECIDE.replace(/\${trumpTeller}/g, trumpTeller).replace(
@@ -27,19 +27,20 @@ export default {
     ),
   gameStarted: {
     yourMove: () => constants.GAME_STARTED.YOUR_MOVE,
-    waiting: turnOf =>
+    waiting: (turnOf) =>
       constants.GAME_STARTED.WAITING.replace(/\${turnOf}/g, turnOf),
-    lastRoundWinner: lastRoundWinner =>
+    lastRoundWinner: (lastRoundWinner) =>
       constants.GAME_STARTED.LAST_ROUND_WINNER.replace(
         /\${lastRoundWinner}/g,
         lastRoundWinner
-      )
+      ),
   },
   myHandSubtitle: (username, points, trump) =>
     constants.MY_HAND_SUBTITLE.replace(/\${username}/g, username)
       .replace(/\${points}/g, points)
       .replace(/\${trump}/g, trump),
   youTellHands: () => constants.YOU_TELL_HANDS,
-  trumpIs: trump => constants.TRUMP_IS.replace(/\${trump}/g, trump),
-  joined: user => constants.JOINED.replace(/\${user}/g, user)
+  trumpIs: (trump) => constants.TRUMP_IS.replace(/\${trump}/g, trump),
+  joined: (user) => constants.JOINED.replace(/\${user}/g, user),
+  chooseTeam: (user) => constants.CHOOSE_TEAM.replace(/\${user}/g, user),
 };

@@ -2,8 +2,15 @@ import React from "react";
 import Card from "../card/card";
 
 export default (props) => {
-  const { player, isVerticle, username } = props;
+  const { player, isVerticle, username, teams } = props;
   const { cards, points, handsCountTold, iconNumber } = player;
+
+  const teamColor = teams
+    ? teams.blue.filter((p) => p === username).length == 0
+      ? "RED"
+      : "BLUE"
+    : "RED";
+
   return (
     <div>
       <div>
@@ -29,6 +36,7 @@ export default (props) => {
               style={isVerticle ? {} : { marginLeft: "-5.5em" }}
               key={key}
               card={card}
+              teamColor={teamColor}
             ></Card>
           ))}
         </div>

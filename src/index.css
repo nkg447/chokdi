@@ -165,6 +165,21 @@ input,
   justify-content: space-around;
 }
 
+.choose-team,
+.choose-team > div {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  margin-left: 10px;
+}
+.choose-team > div{
+  border: 1px solid black;
+}
+.choose-team .button{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .text {
   font-size: 100%;
   display: flex;

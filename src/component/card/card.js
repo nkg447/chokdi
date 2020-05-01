@@ -1,9 +1,9 @@
 import React from "react";
 
-export default props => {
-  const { card, visible, of, ...otherProps } = props;
+export default (props) => {
+  const { card, visible, teamColor, of, ...otherProps } = props;
   const { suit, value } = card;
-  let path = "cards/RED_BACK.svg";
+  let path = `cards/${teamColor}_BACK.svg`;
   if (visible) {
     path = `cards/${value}${suit}.svg`;
   }

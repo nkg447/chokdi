@@ -6,10 +6,11 @@ export default {
   GAME_STARTED: {
     YOUR_MOVE: "Your move.",
     WAITING: "Waiting for ${turnOf} to deal a card.",
-    LAST_ROUND_WINNER: "Last round winner is ${lastRoundWinner}"
+    LAST_ROUND_WINNER: "Last round winner is ${lastRoundWinner}",
   },
   MY_HAND_SUBTITLE: "${username} (Points - ${points}) (Trump - ${trump})",
   YOU_TELL_HANDS: "How many hands will you make?",
   TRUMP_IS: "Trump - ${trump}",
-  JOINED: "${user} joinned the game."
+  JOINED: "${user} joinned the game.",
+  CHOOSE_TEAM: "${user} is choosing team",
 };

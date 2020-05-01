@@ -8,10 +8,11 @@ export default {
   GAME_STARTED: {
     YOUR_MOVE: "Chal re halkat!",
     WAITING: "Ae isko bata re, ${turnOf} ki baari hai.",
-    LAST_ROUND_WINNER: "Pichla vala ${lastRoundWinner} bana kr le gaya saala."
+    LAST_ROUND_WINNER: "Pichla vala ${lastRoundWinner} bana kr le gaya saala.",
   },
   MY_HAND_SUBTITLE: "${username} (haath - ${points}) (kaat - ${trump})",
   YOU_TELL_HANDS: "Kitne hath banaea re tu?",
   TRUMP_IS: "Kaat - ${trump}",
-  JOINED: "${user} bhi khelega re baba."
+  JOINED: "${user} bhi khelega re baba.",
+  CHOOSE_TEAM: "${user} is choosing team",
 };
