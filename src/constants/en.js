@@ -13,4 +13,5 @@ export default {
   TRUMP_IS: "Trump - ${trump}",
   JOINED: "${user} joinned the game.",
   CHOOSE_TEAM: "${user} is choosing team",
+  GAME_OVER: "${team} Team Won the Game",
 };

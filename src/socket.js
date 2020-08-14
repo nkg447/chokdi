@@ -11,5 +11,5 @@ else if (window.location.href.indexOf("192.168") != -1)
   socketEndpoint = window.location.host + ":" + PORT;
 else socketEndpoint = "http://18.216.249.155:" + PORT;
 
-const socket = socketIOClient("http://192.168.0.115:4001");
+const socket = socketIOClient("http://localhost:4001");
 export default socket;

@@ -11,6 +11,7 @@ import ChooseTeam from "../../component/chooseteam/chooseteam";
 export default class Game extends Component {
   render() {
     const gameRoomData = JSON.parse(this.props.gameRoomData);
+    console.log(gameRoomData);
     const username = this.props.username;
     let {
       players,
@@ -33,7 +34,7 @@ export default class Game extends Component {
           <ChooseTeam players={players} username={username}></ChooseTeam>
         );
       } else {
-        boardComponent = <p>{Constants.chooseTeam(message)}</p>;
+        boardComponent = <p>{Constants.chooseTeam(playersOrder[0])}</p>;
       }
     }
     if (status === "TELL_HANDS") {
@@ -72,6 +73,12 @@ export default class Game extends Component {
           <div>{Constants.gameStarted.waiting(gameRoomData.turnOf)}</div>
         );
       }
+    }
+
+    if (status === "GAME_OVER") {
+      boardComponent = (
+        <div>{Constants.gameOver(message.message)}</div>
+      );
     }
 
     while (playersOrder[0] !== username) {

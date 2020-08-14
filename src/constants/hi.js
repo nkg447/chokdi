@@ -14,4 +14,5 @@ export default {
   TRUMP_IS: "Kaat - ${trump}",
   JOINED: "${user} aa gaya game me.",
   CHOOSE_TEAM: "${user} is choosing team",
+  GAME_OVER: "${team} Team Jeet gai",
 };

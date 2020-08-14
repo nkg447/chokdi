@@ -43,4 +43,5 @@ export default {
   trumpIs: (trump) => constants.TRUMP_IS.replace(/\${trump}/g, trump),
   joined: (user) => constants.JOINED.replace(/\${user}/g, user),
   chooseTeam: (user) => constants.CHOOSE_TEAM.replace(/\${user}/g, user),
+  gameOver: (team) => constants.GAME_OVER.replace(/\${team}/g, team),
 };
