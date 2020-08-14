@@ -6,24 +6,10 @@ A card game played between two players. Commonly known as Bridge
 
 ![Chokdi](https://github.com/nkg447/chokdi/raw/master/screenshot/chokdi-screenshot1.jpg)
 
-### `yarn start`
+## Get Started
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+npm run-script build
+node server.js
+```
+visit localhost:4001
